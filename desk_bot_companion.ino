@@ -99,24 +99,43 @@ void time_show(){
   init_time=millis();
   M5.Lcd.setTextSize(4);
   M5.Lcd.setCursor(60,20);
+  if(flag==0){
+    M5.Lcd.println("Meeting Time");
+    M5.Lcd.setTextSize(3);
+    M5.Lcd.setCursor(0,140);
+    M5.Lcd.println("Time Left : 03 - 55");
+    flag=1;
+  }
   if(flag==1){
-    M5.Lcd.println("Work Time");
+    M5.Lcd.println("Lunch Time");
+    M5.Lcd.setTextSize(3);
+    M5.Lcd.setCursor(0,140);
+    M5.Lcd.println("Time Left : 02 - 15");
+    flag=2;
+  }
+  if(flag==2){
+    M5.Lcd.println("Go Home Time");
+    M5.Lcd.setTextSize(3);
+    M5.Lcd.setCursor(0,140);
+    M5.Lcd.println("Time Left : 06 - 15");
     flag=0;
   }
   
-  else{
-    M5.Lcd.println("Lunch Time");
-    flag=1;
-  }
-  M5.Lcd.setTextSize(3);
+//  else{
+//    M5.Lcd.println("Lunch Time");
+//    flag=1;
+//  }
+//  M5.Lcd.setTextSize(3);
+  
 
-  while(millis()-init_time<6000){
-  M5.Lcd.setCursor(0,140);
-M5.Rtc.GetTime(&RTCtime_Now);
-  sprintf(timeStrbuff,"Time: %02d:%02d:%02d",
-         RTCtime_Now.Hours,RTCtime_Now.Minutes,RTCtime_Now.Seconds);
-  M5.Lcd.println(timeStrbuff);
-}
+//  while(millis()-init_time<6000){
+//  M5.Lcd.setCursor(0,140);
+//  M5.Lcd.println("Time Left : 02 - 45");
+//M5.Rtc.GetTime(&RTCtime_Now);
+//  sprintf(timeStrbuff,"Time: %02d:%02d:%02d",
+//         RTCtime_Now.Hours,RTCtime_Now.Minutes,RTCtime_Now.Seconds);
+//  M5.Lcd.println(timeStrbuff);
+//}
 
   
   
