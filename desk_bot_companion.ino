@@ -72,31 +72,19 @@ void setup() {
 void loop() {
     time_show();
 
-    if (mp3->isRunning()) {
-      if (!mp3->loop()) {
-        mp3->stop();
-      }
-    } else {
-      file = new AudioFileSourceSD("/sponge.mp3");
-    id3 = new AudioFileSourceID3(file);
-    mp3 = new AudioGeneratorMP3();
-    mp3->begin(id3, out);
-    }
+    M5.Lcd.drawJpgFile(SD, "/a1.jpg");
+    dance();
+    cheer_up();
+
+    M5.Lcd.drawJpgFile(SD, "/a2.jpg");
+    dance();
+    cheer_up();
+    dance();
     
     M5.Lcd.drawJpgFile(SD, "/a3.jpg");
     cheer_up();
+    dance();
 
-    if (mp3->isRunning()) {
-      if (!mp3->loop()) {
-        mp3->stop();
-      }
-    } else {
-      file = new AudioFileSourceSD("/sponge.mp3");
-    id3 = new AudioFileSourceID3(file);
-    mp3 = new AudioGeneratorMP3();
-    mp3->begin(id3, out);
-    }
-    
     M5.Lcd.drawJpgFile(SD, "/a4.jpg");
     dance();
     cheer_up();
